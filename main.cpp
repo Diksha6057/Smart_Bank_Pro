@@ -1,19 +1,20 @@
-#include "Account.h" //include Acc class def from Acc.h file ,connects main.cpp with class.
+#include "Account.h"        // Base class ,include Acc class def from Acc.h file ,connects main.cpp with class.
+#include "SavingsAccount.h" //Derived class ,including SavingsAccount content which inherits from Account
 
-int main() {
-
-    Account acc1(101, "xyz", 5000); //calls the constructor nd display() function of acc1: Obj now created in memory
-    acc1.display();
-    return 0;
-}
-#include "SavingsAccount.h" //including SavingsAccount content which inherits from Account
-
-int main() {
-
-    SavingsAccount acc1(101, "xyz", 5000, 5); //passing acc details to const.
-
+#include "CurrentAccount.h" //Another derived class
+#include <iostream>
+using namespace std;
+int main()
+{
+    SavingsAccount acc1(101, "xyz", 5000, 5); // passing acc details to const.
+    CurrentAccount acc2(102, "abc", 8000, 2000);
+    acc1.deposit(1000);
+    acc1.withdraw(2000);
     acc1.calculateInterest();
-    acc1.display(); //from Account class as  SavingsAccount inherit it
-
+    acc1.display(); // from Account class as  SavingsAccount inherit it
+    cout << endl;
+    acc2.calculateInterest();
+    acc2.withdraw(9000);
+    acc2.display();
     return 0;
 }
