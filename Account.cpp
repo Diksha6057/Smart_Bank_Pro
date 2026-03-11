@@ -30,6 +30,9 @@ void Account::display() const
     cout << "Holder Name: " << holderName << endl;
     cout << "Balance: " << balance << endl;
 }
+double Account::getBalance() const {
+    return balance;
+}
 Account::~Account() // destructor
 {
 }

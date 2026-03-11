@@ -12,6 +12,7 @@ public:
     CurrentAccount(int accNo, string name, double bal, double limit);
     void withdraw(double amount);
     void calculateInterest();
+    void display() const override;
 };
 
 #endif

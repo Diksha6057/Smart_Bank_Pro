@@ -23,3 +23,7 @@ void CurrentAccount::calculateInterest()
 {
     cout << "Current accounts usually have no interest." << endl;
 }
+void CurrentAccount::display() const {
+    Account::display();
+    cout << "Overdraft Limit: " << overdraftLimit << endl;
+}

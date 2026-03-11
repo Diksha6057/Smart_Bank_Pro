@@ -11,4 +11,9 @@ void SavingsAccount::calculateInterest()
 {
     double interest = balance * interestRate / 100; //(bal*interest rate/100)
     balance += interest;
+     cout << "Interest added successfully." << endl;
+}
+void SavingsAccount::display() const {   
+    Account::display();                  
+    cout << "Interest Rate: " << interestRate << "%" << endl;
 }

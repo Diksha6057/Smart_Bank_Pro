@@ -13,6 +13,7 @@ public:                                                              // Can be u
     SavingsAccount(int accNo, string name, double bal, double rate); // const.
 
     void calculateInterest();
+    void display() const override;
 };
 
 #endif // header guard
