@@ -27,3 +27,15 @@ void CurrentAccount::display() const {
     Account::display();
     cout << "Overdraft Limit: " << overdraftLimit << endl;
 }
+void CurrentAccount::applyServiceCharge(double charge)
+{
+    if(charge > 0 && charge <= balance)
+    {
+        balance = balance - charge;
+        cout << "Service charge applied." << endl;
+    }
+    else
+    {
+        cout << "Invalid service charge." << endl;
+    }
+}

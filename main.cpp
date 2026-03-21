@@ -16,5 +16,6 @@ int main()
     acc2.calculateInterest();
     acc2.withdraw(9000);
     acc2.display();
+    acc2.applyServiceCharge(200);
     return 0;
 }
