@@ -39,8 +39,8 @@ int main()
         cout << "1. Deposit in Savings Account"<<endl;
         cout << "2. Withdraw from Savings Account"<<endl;
         cout << "3. Display Savings Account"<<endl;
-        cout << "4. Withdraw from Current Account"<<endl;
-        cout << "5. Display Current Account"<<endl;
+        cout << "4. Display all Accounts"<<endl;
+        cout << "5. Get Savings Account Balance"<<endl;
         cout << "6. Exit"<<endl;
         cout << "Enter your choice: ";
         cin >> choice;
