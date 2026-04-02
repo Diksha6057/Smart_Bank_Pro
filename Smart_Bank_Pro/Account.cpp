@@ -10,28 +10,31 @@ Account::Account(int accNo, string name, double bal) // constructor(class name--
 }
 void Account::deposit(double amount)
 {
-     if(amount <= 0)
-    {
-        cout << "Invalid amount!" << endl;
-        return;
+    try {
+        if(amount <= 0)
+            throw "Invalid deposit amount!";
+
+        balance += amount;
+        cout << "Amount deposited successfully." << endl;
     }
-    balance += amount;
-    cout << "Amount deposited successfully." << endl;
+    catch(const char* msg) {
+        cout << msg << endl;
+    }
 }
 void Account::withdraw(double amount)
 {
-    if(amount <= 0)
-    {
-        cout << "Invalid amount!" << endl;
-    }
-    else if (amount <= balance)
-    {
+    try {
+        if(amount <= 0)
+            throw "Invalid amount!";
+
+        if(amount > balance)
+            throw "Insufficient balance!";
+
         balance -= amount;
         cout << "Withdrawal successful." << endl;
     }
-    else
-    {
-        cout << "Insufficient balance." << endl;
+    catch(const char* msg) {
+        cout << msg << endl;
     }
 }
 void Account::display() const
@@ -47,3 +50,4 @@ double Account::getBalance() const {
 Account::~Account() // destructor
 {
 }
+

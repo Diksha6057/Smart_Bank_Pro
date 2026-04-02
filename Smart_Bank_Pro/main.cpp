@@ -14,7 +14,8 @@ int main()
     cin >> accNo;
 
     cout << "Enter Name: ";
-    cin >> name;
+    cin.ignore(); // clear buffer
+  getline(cin, name);
 
     cout << "Enter Balance: ";
     cin >> bal;
@@ -41,7 +42,8 @@ int main()
         cout << "3. Display Savings Account"<<endl;
         cout << "4. Display all Accounts"<<endl;
         cout << "5. Get Savings Account Balance"<<endl;
-        cout << "6. Exit"<<endl;
+        cout << "6. Add Interest to Savings Account" << endl;
+        cout << "7. Exit"<<endl;
         cout << "Enter your choice: ";
         cin >> choice;
 
@@ -83,7 +85,13 @@ int main()
                 cout << "Balance using getter: " << acc1.getBalance() << endl;
                 break;
 
-            case 6:
+
+case 6:
+    acc1.calculateInterest();
+    break;
+
+
+            case 7:
                 cout << "Exiting program..." << endl;
                 break;
 
@@ -91,7 +99,7 @@ int main()
                 cout << "Invalid choice!" << endl;
         }
 
-    } while(choice != 6);
+    } while(choice != 7);
 
     return 0;
 }
