@@ -7,6 +7,7 @@ Account::Account(int accNo, string name, double bal) // constructor(class name--
     accountNumber = accNo;
     holderName = name;
     balance = bal;
+    transactionCount = 0;
 }
 void Account::deposit(double amount)
 {
@@ -15,6 +16,8 @@ void Account::deposit(double amount)
             throw "Invalid deposit amount!";
 
         balance += amount;
+        history[transactionCount] = Transaction("Deposit", amount);
+transactionCount++;
         cout << "Amount deposited successfully." << endl;
     }
     catch(const char* msg) {
@@ -31,12 +34,24 @@ void Account::withdraw(double amount)
             throw "Insufficient balance!";
 
         balance -= amount;
+        history[transactionCount] = Transaction("Withdraw", amount);
+transactionCount++;
         cout << "Withdrawal successful." << endl;
     }
     catch(const char* msg) {
         cout << msg << endl;
     }
 }
+void Account::showTransactions()
+{
+    cout << "\n--- Transaction History ---\n";
+    for(int i = 0; i < transactionCount; i++)
+    {
+        history[i].show();
+    }
+}
+
+
 void Account::display() const
 {
     cout << "Account Number: " << accountNumber << endl;

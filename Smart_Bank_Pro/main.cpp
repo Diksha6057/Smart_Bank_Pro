@@ -37,13 +37,14 @@ int main()
     // Menu-driven program
     do {
         cout << "Smart Bank Menu"<<endl;
-        cout << "1. Deposit in Savings Account"<<endl;
+        cout << "1. Deposit"<<endl;
         cout << "2. Withdraw from Savings Account"<<endl;
         cout << "3. Display Savings Account"<<endl;
         cout << "4. Display all Accounts"<<endl;
         cout << "5. Get Savings Account Balance"<<endl;
         cout << "6. Add Interest to Savings Account" << endl;
-        cout << "7. Exit"<<endl;
+        cout << "7. Show Transaction History" << endl;
+        cout << "8. Exit"<<endl;
         cout << "Enter your choice: ";
         cin >> choice;
 
@@ -89,9 +90,11 @@ int main()
 case 6:
     acc1.calculateInterest();
     break;
+case 7:
+    acc1.showTransactions();
+    break;
 
-
-            case 7:
+            case 8:
                 cout << "Exiting program..." << endl;
                 break;
 
@@ -99,7 +102,7 @@ case 6:
                 cout << "Invalid choice!" << endl;
         }
 
-    } while(choice != 7);
+    } while(choice != 8);
 
     return 0;
 }
