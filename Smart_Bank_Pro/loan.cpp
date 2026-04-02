@@ -31,10 +31,14 @@ void LoanAccount::withdraw(double amount)
 // Display details
 void LoanAccount::display() const
 {
-    cout << "------------------------" << endl;
+   
     cout << "Loan Account Number: " << accountNumber << endl;
     cout << "Total Loan: " << principalAmount << endl;
     cout << "Interest Rate: " << interestRate << "%" << endl;
     cout << "Remaining Loan: " << -balance << endl;
-    cout << "------------------------" << endl;
+   
+}
+void LoanAccount::accountType()
+{
+    cout << "Account Type: Loan Account" << endl;
 }

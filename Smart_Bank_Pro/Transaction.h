@@ -11,6 +11,11 @@ private:
     double amount;
 
 public:
+    Transaction() {   // ✅ ADD THIS
+        type = "";
+        amount = 0;
+    }
+
     Transaction(string t, double a) {
         type = t;
         amount = a;
@@ -21,5 +26,7 @@ public:
              << " | Amount: " << amount << endl;
     }
 };
+
+
 
 #endif

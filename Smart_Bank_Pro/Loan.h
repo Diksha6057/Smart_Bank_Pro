@@ -14,5 +14,6 @@ public:
     void deposit(double amount) override; 
     void withdraw(double amount) override; 
     void display() const override;
+    void accountType() override;
 };
 #endif

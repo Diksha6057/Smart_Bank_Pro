@@ -18,6 +18,8 @@ void CurrentAccount::withdraw(double amount)
     {
         cout << "Withdrawal exceeds overdraft limit." << endl;
     }
+    history[transactionCount] = Transaction("Withdraw", amount);
+transactionCount++;
 }
 void CurrentAccount::calculateInterest()
 {
@@ -26,4 +28,8 @@ void CurrentAccount::calculateInterest()
 void CurrentAccount::display() const {
     Account::display();
     cout << "Overdraft Limit: " << overdraftLimit << endl;
+}
+void CurrentAccount::accountType()
+{
+    cout << "Account Type: Current Account" << endl;
 }

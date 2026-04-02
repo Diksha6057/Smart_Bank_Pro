@@ -17,3 +17,21 @@ void SavingsAccount::display() const {
     Account::display();                  
     cout << "Interest Rate: " << interestRate << "%" << endl;
 }
+void SavingsAccount::accountType()
+{
+    cout << "Account Type: Savings Account" << endl;
+}
+void SavingsAccount::withdraw(double amount)
+{
+    if(amount <= balance)
+    {
+        balance -= amount;
+        cout << "Withdrawal successful\n";
+    }
+    else
+    {
+        cout << "Insufficient balance\n";
+    }
+    history[transactionCount] = Transaction("Withdraw", amount);
+transactionCount++;
+}

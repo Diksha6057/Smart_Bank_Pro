@@ -13,6 +13,7 @@ public:
 void withdraw(double amount) override;
     void calculateInterest();
     void display() const override;
-};
 
+void accountType() override;
+};
 #endif

@@ -1,6 +1,7 @@
 #include "Account.h"        // Base class ,include Acc class def from Acc.h file ,connects main.cpp with class.
 #include "SavingsAccount.h" //Derived class ,including SavingsAccount content which inherits from Account
-
+#include "Transaction.h"   // To show transaction history
+#include "Loan.h"          // Another derived class
 #include "CurrentAccount.h" //Another derived class
 #include <iostream>
 using namespace std;
@@ -21,14 +22,14 @@ int main()
     cin >> bal;
     
  //Creating objects
-    SavingsAccount acc1(accNo, name, bal, 5);
-    CurrentAccount acc2(102, "abc", 8000, 2000);
+ SavingsAccount savingsAcc(accNo, name, bal, 5);
+CurrentAccount currentAcc(102, "abc", 8000, 2000);
 //Pointer (Polymorphism demo)
     Account* ptr;
     //Storing in array (polymorphism)  Array of base class pointers
     Account* accounts[2];
-    accounts[0] = &acc1;
-    accounts[1] = &acc2;
+    accounts[0] = &savingsAcc;
+    accounts[1] = &currentAcc;
 
 
 
@@ -44,7 +45,8 @@ int main()
         cout << "5. Get Savings Account Balance"<<endl;
         cout << "6. Add Interest to Savings Account" << endl;
         cout << "7. Show Transaction History" << endl;
-        cout << "8. Exit"<<endl;
+        cout << "8. Show Account Type" << endl;
+        cout << "9. Exit"<<endl;
         cout << "Enter your choice: ";
         cin >> choice;
 
@@ -53,23 +55,23 @@ int main()
             case 1:
                 cout << "Enter amount to deposit: ";
                 cin >> amount;
-                acc1.deposit(amount);
+                savingsAcc.deposit(amount);
                 break;
 
             case 2:
                 cout << "Enter amount to withdraw: ";
                 cin >> amount;
-                acc1.withdraw(amount);
+                savingsAcc.withdraw(amount);
                 break;
 
            case 3:
                 //Using pointer (polymorphism)
-                ptr = &acc1;
+                ptr = &savingsAcc;
                 ptr->display();
 
                 cout << endl;
 
-                ptr = &acc2;
+                ptr = &currentAcc;
                 ptr->display();
                 break;
 
@@ -83,18 +85,20 @@ int main()
                 break;
 
             case 5:
-                cout << "Balance using getter: " << acc1.getBalance() << endl;
+                cout << "Balance using getter: " << savingsAcc.getBalance() << endl;
                 break;
 
 
 case 6:
-    acc1.calculateInterest();
+    savingsAcc.calculateInterest();
     break;
 case 7:
-    acc1.showTransactions();
+    savingsAcc.showTransactions();
     break;
-
-            case 8:
+case 8:
+    savingsAcc.accountType(); 
+    break;  
+            case 9:
                 cout << "Exiting program..." << endl;
                 break;
 
@@ -102,7 +106,7 @@ case 7:
                 cout << "Invalid choice!" << endl;
         }
 
-    } while(choice != 8);
+    } while(choice != 9);
 
     return 0;
 }
