@@ -1,6 +1,4 @@
-
-
-#include "Account.h"  
+#include "Account.h"
 #include <iostream>
 using namespace std;
 
@@ -12,7 +10,7 @@ Account::Account(int accNo, string name, double bal)
     balance = bal;
 }
 
-// Deposit function
+// Deposit
 void Account::deposit(double amount)
 {
     if(amount <= 0)
@@ -25,23 +23,7 @@ void Account::deposit(double amount)
     cout << "Amount deposited successfully." << endl;
 }
 
-void Account::withdraw(double amount)
-{
-    if(amount <= 0)
-    {
-        cout << "Invalid amount!" << endl;
-    }
-    else if(amount <= balance)
-    {
-        balance -= amount;
-        cout << "Withdrawal successful." << endl;
-    }
-    else
-    {
-        cout << "Insufficient balance." << endl;
-    }
-}
-
+// Display
 void Account::display() const
 {
     cout << "Account Number: " << accountNumber << endl;
@@ -49,10 +31,13 @@ void Account::display() const
     cout << "Balance: " << balance << endl;
 }
 
+// Getter
 double Account::getBalance() const
 {
     return balance;
 }
+
+// Destructor
 Account::~Account()
 {
 }

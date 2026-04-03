@@ -15,22 +15,23 @@ int main()
     cin >> accNo;
 
     cout << "Enter Name: ";
-    cin >> name;
+    cin.ignore();
+    getline(cin, name);
 
     cout << "Enter Balance: ";
     cin >> bal;
 
     // Creating objects
-    SavingsAccount acc1(accNo, name, bal, 5);
-    CurrentAccount acc2(102, "abc", 8000, 2000);
+    SavingsAccount savingsAcc(accNo, name, bal, 5);
+    CurrentAccount currentAcc(102, "abc", 8000, 2000);
 
     // Polymorphism pointer
     Account* ptr;
 
     // Array of base class pointers
     Account* accounts[2];
-    accounts[0] = &acc1;
-    accounts[1] = &acc2;
+    accounts[0] = &savingsAcc;
+    accounts[1] = &currentAcc;
 
     int choice;
     double amount;
@@ -41,8 +42,8 @@ int main()
         cout << "1. Deposit in Savings Account" << endl;
         cout << "2. Withdraw from Savings Account" << endl;
         cout << "3. Display Both Accounts (Polymorphism)" << endl;
-        cout << "4. Display Using Array" << endl;
-        cout << "5. Show Balance (Getter)" << endl;
+        cout << "4. Display All Accounts" << endl;
+        cout << "5. Get Savings Account Balance" << endl;
         cout << "6. Apply Service Charge (Current Account)" << endl;
         cout << "7. Exit" << endl;
 
@@ -54,22 +55,22 @@ int main()
             case 1:
                 cout << "Enter amount to deposit: ";
                 cin >> amount;
-                acc1.deposit(amount);
+                savingsAcc.deposit(amount);
                 break;
 
             case 2:
                 cout << "Enter amount to withdraw: ";
                 cin >> amount;
-                acc1.withdraw(amount);
+                savingsAcc.withdraw(amount);
                 break;
 
             case 3:
-                ptr = &acc1;
+                ptr = &savingsAcc;
                 ptr->display();
 
                 cout << endl;
 
-                ptr = &acc2;
+                ptr = &currentAcc;
                 ptr->display();
                 break;
 
@@ -82,13 +83,14 @@ int main()
                 break;
 
             case 5:
-                cout << "Balance using getter: " << acc1.getBalance() << endl;
+                cout << "Balance using getter: " << savingsAcc.getBalance() << endl;
                 break;
 
             case 6:
                 cout << "Enter service charge: ";
                 cin >> amount;
-                acc2.applyServiceCharge(amount);
+                // apply service charge by withdrawing the amount from the current account
+                currentAcc.withdraw(amount);
                 break;
 
             case 7:

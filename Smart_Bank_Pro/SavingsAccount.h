@@ -14,6 +14,7 @@ public:                                                              // Can be u
 
     void calculateInterest();
     void display() const override;
+void accountType() override;
+void withdraw(double amount) override;
 };
-
 #endif // header guard
