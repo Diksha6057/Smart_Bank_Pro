@@ -36,7 +36,36 @@ double Account::getBalance() const
 {
     return balance;
 }
+void Account::withdraw(double amount)
+{
+    if(amount <= 0)
+    {
+        cout << "Invalid amount!" << endl;
+        return;
+    }
+    if(amount <= balance)
+    {
+        balance -= amount;
+        cout << "Withdrawal successful." << endl;
+    }
+    else
+    {
+        cout << "Insufficient balance." << endl;
+    }
+}
 
+void Account::showTransactions()
+{
+    if(transactionCount == 0)
+    {
+        cout << "No transactions yet." << endl;
+        return;
+    }
+    for(int i = 0; i < transactionCount; i++)
+    {
+        history[i].show();
+    }
+}
 // Destructor
 Account::~Account()
 {
