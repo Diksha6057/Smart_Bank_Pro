@@ -54,11 +54,6 @@ int main()
     LoanAccount loanAcc(accNo3, name3, loanAmt, loanRate);
 
 
-
-
-    
-
-
     // Polymorphism pointer
     Account* ptr;
 

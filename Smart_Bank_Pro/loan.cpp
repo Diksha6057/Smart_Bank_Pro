@@ -3,6 +3,8 @@
 using namespace std;
 LoanAccount::LoanAccount(int accNo,  string holderName, double principal, double rate)
     : Account(accNo,  holderName,-principal)
+
+
 {
     principalAmount = principal;
     interestRate = rate;
