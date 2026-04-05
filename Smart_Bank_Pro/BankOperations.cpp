@@ -1,4 +1,6 @@
 #include "BankOperations.h"
+#include <iostream>
+using namespace std;
 double BankOperations::deposit(double balance, double amount)
 {
     return balance + amount;

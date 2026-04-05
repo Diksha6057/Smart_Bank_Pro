@@ -1,5 +1,5 @@
-#ifndef LOANACCOUNT_H
-#define LOANACCOUNT_H
+#ifndef LOAN_H
+#define LOAN_H
 #include "Account.h"
 #include <string>
 

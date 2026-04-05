@@ -11,11 +11,18 @@ CurrentAccount::CurrentAccount(int accNo, string name, double bal, double limit)
 
 void CurrentAccount::withdraw(double amount)
 {
+    if (amount <= 0) {
+        cout << "Invalid amount!" << endl;
+        return;
+    }
     if (amount <= balance + overdraftLimit)
     {
         balance -= amount;
-        cout << "Withdrawal successful using overdraft if needed." << endl;
-    }
+         if (transactionCount < 100)
+            history[transactionCount++] = Transaction("Withdrawal", amount);
+        cout << "Withdrawal successful. New Balance: " << balance << endl;
+    } 
+        
     else
     {
         cout << "Withdrawal exceeds overdraft limit." << endl;
@@ -33,18 +40,27 @@ void CurrentAccount::display() const
     cout << "Overdraft Limit: " << overdraftLimit << endl;
 }
 
-void CurrentAccount::applyServiceCharge(double charge)
-{
-    if(charge > 0 && charge <= balance)
-    {
-        balance -= charge;
-        cout << "Service charge applied." << endl;
+
+
+
+
+
+void CurrentAccount::applyServiceCharge(double charge) {
+    if (charge <= 0) {
+        cout << "Invalid service charge!" << endl;
+        return;
     }
-    else
-    {
-        cout << "Invalid service charge." << endl;
+    if (charge <= balance) {
+        balance -= charge;
+        if (transactionCount < 100)
+            history[transactionCount++] = Transaction("Service Charge", charge);
+        cout << "Service charge of " << charge << " applied. New Balance: " << balance << endl;
+    } else {
+        cout << "Insufficient balance for service charge." << endl;
     }
 }
+
+
 
 void CurrentAccount::accountType()
 {

@@ -1,5 +1,9 @@
 #include "Transaction.h"
 
+#include <iostream>
+#include <string>
+using namespace std;
+
 // Default constructor
 Transaction::Transaction() {
     type = "";

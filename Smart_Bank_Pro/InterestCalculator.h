@@ -1,9 +1,6 @@
 #ifndef INTERESTCALCULATOR_H
 #define INTERESTCALCULATOR_H
 
-#include <iostream>
-using namespace std;
-
 class InterestCalculator {
 public:
     static double simpleInterest(double principal, double rate, int years);
