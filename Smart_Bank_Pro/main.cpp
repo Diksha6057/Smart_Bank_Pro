@@ -45,7 +45,8 @@ int main()
         cout << "4. Display All Accounts" << endl;
         cout << "5. Get Savings Account Balance" << endl;
         cout << "6. Apply Service Charge (Current Account)" << endl;
-        cout << "7. Exit" << endl;
+        cout << "7. Show Transaction History" << endl;
+        cout << "8. Exit" << endl;
 
         cout << "Enter your choice: ";
         cin >> choice;
@@ -93,15 +94,21 @@ int main()
                 currentAcc.withdraw(amount);
                 break;
 
+            
             case 7:
+               cout << "Savings Account Transactions:" << endl;
+               savingsAcc.showTransactions();
+               break;
+
+               case 8:
                 cout << "Exiting program..." << endl;
                 break;
-
+                
             default:
                 cout << "Invalid choice!" << endl;
         }
 
-    } while(choice != 7);
+    } while(choice != 8);
 
     return 0;
 }
