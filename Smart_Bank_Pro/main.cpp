@@ -21,9 +21,26 @@ int main()
     cout << "Enter Balance: ";
     cin >> bal;
 
-    // Creating objects
-    SavingsAccount savingsAcc(accNo, name, bal, 5);
-    CurrentAccount currentAcc(102, "abc", 8000, 2000);
+  
+// Taking input for Current Account
+int accNo2;
+string name2;
+double bal2;
+
+cout << "Enter Current Account Number: ";
+cin >> accNo2;
+cout << "Enter Current Account Holder Name: ";
+cin.ignore();
+getline(cin, name2);
+cout << "Enter Current Account Balance: ";
+cin >> bal2;
+
+// Creating objects
+SavingsAccount savingsAcc(accNo, name, bal, 5);
+CurrentAccount currentAcc(accNo2, name2, bal2, 2000);
+    
+    
+
 
     // Polymorphism pointer
     Account* ptr;
