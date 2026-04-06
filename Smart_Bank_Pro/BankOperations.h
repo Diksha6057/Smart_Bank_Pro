@@ -1,4 +1,3 @@
-// BankOperations.h - Utility class for standalone bank calculations
 #ifndef BANKOPERATIONS_H
 #define BANKOPERATIONS_H
 

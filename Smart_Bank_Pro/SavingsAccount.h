@@ -1,20 +1,20 @@
-// SavingsAccount inherits from Account.
-#ifndef SAVINGSACCOUNT_H // header guard
-#define SAVINGSACCOUNT_H // header guard
+#ifndef SAVINGSACCOUNT_H
+#define SAVINGSACCOUNT_H
 
-#include "Account.h" //bringing here code from Account.h
+#include "Account.h"
 
-class SavingsAccount : public Account // INHERITANCE
+class SavingsAccount : public Account
 {
-private: // Can be used only inside class
+private:
     double interestRate;
 
-public:                                                              // Can be used outside class
-    SavingsAccount(int accNo, string name, double bal, double rate); // const.
+public:
+    SavingsAccount(int accNo, string name, double bal, double rate);
 
     void calculateInterest();
     void display() const override;
-void accountType() override;
-void withdraw(double amount) override;
+    void accountType() override;
+    void withdraw(double amount) override;
 };
-#endif // header guard
+
+#endif
