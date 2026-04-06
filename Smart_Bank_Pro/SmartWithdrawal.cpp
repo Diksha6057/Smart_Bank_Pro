@@ -79,9 +79,9 @@ int main() {
     BaseAccount* myAccount = nullptr; 
     int choice;
 
-    cout << "=========================================\n";
+    
     cout << "       SMART BANKING PRO SYSTEM          \n";
-    cout << "=========================================\n\n";
+   
 
     cout << "--- Create Your Account ---\n";
     cout << "1. Savings Account\n";
@@ -119,9 +119,9 @@ int main() {
     }
 
     do {
-        cout << "\n=========================================\n";
+        
         cout << "   ACCOUNT DASHBOARD (A/c: " << myAccount->getAccountNumber() << ")";
-        cout << "\n=========================================\n";
+      
         cout << "1. Check Balance\n";
         cout << "2. Deposit Funds\n";
         cout << "3. Withdraw Funds\n";
