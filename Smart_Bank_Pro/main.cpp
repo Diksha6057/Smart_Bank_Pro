@@ -86,7 +86,8 @@ int main()
         cout << "10. Show Current Transaction History" << endl;
         cout << "11. Interest Calculator (Simple)" << endl;
         cout << "12. Interest Calculator (Compound)" << endl;
-        cout << "13. Exit" << endl;
+        cout << "13. Template Interest Calculation" << endl;
+        cout << "14. Exit" << endl;
         printLine();
         cout << "Enter your choice: ";
         cin >> choice;
