@@ -169,8 +169,35 @@ int main()
                 InterestCalculator::displayCompoundInterest(principal, rate, years);
                 break;
             }
+            case 13: {
 
-            case 13:
+               double principalAmount;
+               double interestRate;
+               double numberOfYears;
+
+               cout << "Enter Principal Amount : ";
+               cin >> principalAmount;
+
+               cout << "Enter Interest Rate %  : ";
+               cin >> interestRate;
+
+               cout << "Enter Number of Years  : ";
+               cin >> numberOfYears;
+
+               double calculatedInterest =
+               bankUtility.calculateSimpleInterest(
+               principalAmount,
+               interestRate,
+               numberOfYears);
+
+               cout << "\n--- Template Demonstration ---" << endl;
+
+              bankUtility.displayResult(calculatedInterest);
+
+    break;
+}
+
+            case 14:
                 cout << "Thank you for using Smart Bank Pro. Goodbye!" << endl;
                 break;
 
@@ -178,7 +205,7 @@ int main()
                 cout << "Invalid choice! Please enter 1-13." << endl;
         }
 
-    } while (choice != 13);
+    } while (choice != 14);
 
     return 0;
 }
