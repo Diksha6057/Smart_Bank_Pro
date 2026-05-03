@@ -1,5 +1,6 @@
 #include "Loan.h"
 #include <iostream>
+#include <stdexcept>
 using namespace std;
 
 LoanAccount::LoanAccount(int accNo, string holderName, double principal, double rate)
@@ -11,23 +12,43 @@ LoanAccount::LoanAccount(int accNo, string holderName, double principal, double 
 
 void LoanAccount::deposit(double amount)
 {
-    if(amount <= 0)
+    try
     {
-        cout << "Invalid EMI amount!" << endl;
-        return;
+        if (amount <= 0)
+        {
+            throw runtime_error(
+                "Invalid EMI amount.");
+        }
+
+        balance += amount;
+
+        if (transactionCount < 100)
+        {
+            history[transactionCount++] =
+                Transaction("EMI Payment", amount);
+        }
+
+        cout << "EMI paid: "
+             << amount
+             << endl;
+
+        if (balance >= 0)
+        {
+            cout << "Loan fully repaid! Congratulations!"
+                 << endl;
+        }
+        else
+        {
+            cout << "Remaining Loan: "
+                 << -balance
+                 << endl;
+        }
     }
-
-    balance += amount;
-
-    if (transactionCount < 100)
-        history[transactionCount++] = Transaction("EMI Payment", amount);
-
-    cout << "EMI paid: " << amount << endl;
-
-    if (balance >= 0) {
-        cout << "Loan fully repaid! Congratulations!" << endl;
-    } else {
-        cout << "Remaining Loan: " << -balance << endl;
+    catch (const exception& exceptionMessage)
+    {
+        cout << "Exception: "
+             << exceptionMessage.what()
+             << endl;
     }
 }
 
