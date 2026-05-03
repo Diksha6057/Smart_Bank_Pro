@@ -18,6 +18,7 @@ int main()
      printLine();
     cout << "   Welcome to Smart Bank Pro   " << endl;
     printLine();
+    BankUtilities<double> bankUtility;
 
 
  // ---- Create Savings Account ----
