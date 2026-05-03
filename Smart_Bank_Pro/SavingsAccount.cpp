@@ -1,5 +1,6 @@
 #include "SavingsAccount.h"
 #include <iostream>
+#include <stdexcept>
 using namespace std;
 
 SavingsAccount::SavingsAccount(int accNo, string name, double bal, double rate)
@@ -27,18 +28,40 @@ void SavingsAccount::accountType()
 {
     cout << "This is a Savings Account." << endl;
 }
-void SavingsAccount::withdraw(double amount) {
-    const double MIN_BALANCE = 500.0; // minimum balance required
-    if (amount <= 0) {
-        cout << "Invalid amount!" << endl;
-        return;
+void SavingsAccount::withdraw(double amount)
+{
+    try
+    {
+        const double minimumBalance = 500.0;
+
+        if (amount <= 0)
+        {
+            throw runtime_error(
+                "Invalid withdrawal amount.");
+        }
+
+        if (balance - amount < minimumBalance)
+        {
+            throw runtime_error(
+                "Minimum balance of 500 must be maintained.");
+        }
+
+        balance -= amount;
+
+        if (transactionCount < 100)
+        {
+            history[transactionCount++] =
+                Transaction("Withdrawal", amount);
+        }
+
+        cout << "Withdrawal successful. New Balance: "
+             << balance
+             << endl;
     }
-    if (balance - amount < MIN_BALANCE) {
-        cout << "Cannot withdraw! Minimum balance of " << MIN_BALANCE << " must be maintained." << endl;
-        return;
+    catch (const exception& exceptionMessage)
+    {
+        cout << "Exception: "
+             << exceptionMessage.what()
+             << endl;
     }
-    balance -= amount;
-    if (transactionCount < 100)
-        history[transactionCount++] = Transaction("Withdrawal", amount);
-    cout << "Withdrawal successful. New Balance: " << balance << endl;
 }
