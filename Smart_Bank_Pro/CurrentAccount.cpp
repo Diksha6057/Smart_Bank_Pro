@@ -1,6 +1,7 @@
 
 #include "CurrentAccount.h"
 #include <iostream>
+#include <stdexcept>
 using namespace std;
 
 CurrentAccount::CurrentAccount(int accNo, string name, double bal, double limit)
@@ -46,18 +47,24 @@ void CurrentAccount::display() const
 
 
 void CurrentAccount::applyServiceCharge(double charge) {
-    if (charge <= 0) {
-        cout << "Invalid service charge!" << endl;
-        return;
+try
+{
+    if (serviceChargeAmount <= 0)
+    {
+        throw runtime_error(
+            "Invalid service charge amount.");
     }
-    if (charge <= balance) {
-        balance -= charge;
-        if (transactionCount < 100)
-            history[transactionCount++] = Transaction("Service Charge", charge);
-        cout << "Service charge of " << charge << " applied. New Balance: " << balance << endl;
-    } else {
-        cout << "Insufficient balance for service charge." << endl;
-    }
+
+    balance -= serviceChargeAmount;
+
+    cout << "Service charge applied successfully."
+         << endl;
+}
+catch (const exception& exceptionMessage)
+{
+    cout << "Exception: "
+         << exceptionMessage.what()
+         << endl;
 }
 
 
